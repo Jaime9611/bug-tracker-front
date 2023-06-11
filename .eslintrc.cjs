@@ -19,7 +19,7 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'react', 'prettier'],
   rules: {
-    'react/react-in-jsx-scope': false,
-    'react/function-component-definition': false,
+    'react/react-in-jsx-scope': 0,
+    'react/function-component-definition': 0,
   },
 };
