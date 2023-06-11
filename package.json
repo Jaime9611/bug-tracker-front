@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx,css --report-unused-disable-directives --max-warnings 0",
-    "format": "prettier --write 'src/**/*.{ts,tsx,css}' --config ./.prettierrc",
+    "lint": "eslint -c ./.eslintrc.cjs src/**/*.{ts,tsx}",
+    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "preview": "vite preview",
     "test": "vitest",
     "test:ci": "CI=true vitest"
