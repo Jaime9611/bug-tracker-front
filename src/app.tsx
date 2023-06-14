@@ -1,3 +1,12 @@
-const App = () => <h1>Hello world</h1>;
+import { CssBaseline } from '@mui/material';
+
+import { Header } from '@features/ui';
+
+const App = () => (
+  <>
+    <CssBaseline />
+    <Header />
+  </>
+);
 
 export default App;
