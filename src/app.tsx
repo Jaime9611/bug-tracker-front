@@ -1,11 +1,12 @@
 import { CssBaseline } from '@mui/material';
 
-import { Header } from '@features/ui';
+import { PageContainer } from '@features/ui';
 
 const App = () => (
   <>
     <CssBaseline />
-    <Header />
+    {/* TODO: REPLACE WITH ROUTES */}
+    <PageContainer>App Content</PageContainer>
   </>
 );
 
