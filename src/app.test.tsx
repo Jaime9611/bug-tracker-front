@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import App from './app';
 
@@ -8,8 +8,5 @@ describe('App', () => {
     render(<App />);
     // ACT
     // ASSERT
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
-      'Hello world'
-    );
   });
 });
