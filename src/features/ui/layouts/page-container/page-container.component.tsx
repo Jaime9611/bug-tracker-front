@@ -1,15 +1,11 @@
-import { FC, ReactNode } from 'react';
+import { Outlet } from 'react-router-dom';
 
 import { Header } from '@features/ui';
 
-interface PageContainerProps {
-  children: ReactNode;
-}
-
-const PageContainer: FC<PageContainerProps> = ({ children }) => (
+const PageContainer = () => (
   <>
     <Header />
-    {children}
+    <Outlet />
   </>
 );
 
