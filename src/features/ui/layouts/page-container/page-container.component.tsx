@@ -1,12 +1,22 @@
 import { Outlet } from 'react-router-dom';
 
-import { Header } from '@features/ui';
+import { Header, Sidebar } from '@features/ui';
+import { Box } from '@mui/material';
 
-const PageContainer = () => (
-  <>
-    <Header />
-    <Outlet />
-  </>
-);
+const PageContainer = () => {
+  return (
+    <>
+      <Header />
+      <Box display="flex" mt={9}>
+        <Sidebar />
+        <Box flex={1} px={4} pt={3}>
+          <Box>
+            <Outlet />
+          </Box>
+        </Box>
+      </Box>
+    </>
+  );
+};
 
 export default PageContainer;
