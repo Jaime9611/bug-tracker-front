@@ -1,2 +1,4 @@
-export * from './avatar-icon';
-export * from './notification-icon';
+export { default as AvatarIcon } from './avatar-icon.component';
+export { default as NotificationIcon } from './notification-icon.component';
+export { default as AddIcon } from './add-icon.component';
+export { default as HamburgerIcon } from './hamburger-icon.component';

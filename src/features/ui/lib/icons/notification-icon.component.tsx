@@ -7,12 +7,10 @@ interface NotificationIconProps {
   handleClick: () => void;
 }
 
-const NotificationIcon: FC<NotificationIconProps> = ({ handleClick }) => {
-  return (
-    <IconButton aria-label="avatar-icon" onClick={handleClick}>
-      <NotificationsNoneIcon color="primary" />
-    </IconButton>
-  );
-};
+const NotificationIcon: FC<NotificationIconProps> = ({ handleClick }) => (
+  <IconButton aria-label="notification-icon" onClick={handleClick}>
+    <NotificationsNoneIcon color="primary" />
+  </IconButton>
+);
 
 export default NotificationIcon;
