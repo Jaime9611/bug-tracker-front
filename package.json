@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint -c ./.eslintrc.cjs src/**/*.{ts,tsx}",
+    "lint": "eslint -c ./.eslintrc.cjs --ext ts,tsx src",
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "preview": "vite preview",
@@ -14,7 +14,7 @@
     "test:ci": "CI=true vitest"
   },
   "lint-staged": {
-    "**/*.{ts,tsx,css}": [
+    "**/*.{ts,tsx}": [
       "yarn format",
       "yarn lint"
     ]
