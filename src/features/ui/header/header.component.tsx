@@ -1,4 +1,4 @@
-import { Button, IconButton, Typography } from '@mui/material';
+import { Button, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { Navbar } from '../lib/navbar';
