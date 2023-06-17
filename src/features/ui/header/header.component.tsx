@@ -4,7 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Navbar } from '../lib/navbar';
 
 import ProfileImage from '../../../assets/images/profile-1.jpg';
-import { AvatarIcon } from '../lib';
+import { AvatarIcon, NotificationIcon } from '../lib';
 
 export default function Header() {
   return (
@@ -18,10 +18,8 @@ export default function Header() {
       >
         <MenuIcon />
       </IconButton>
-      <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-        AppBar
-      </Typography>
       <Button color="inherit">Login</Button>
+      <NotificationIcon handleClick={() => undefined} />
       <AvatarIcon imgSRC={ProfileImage} handleClick={() => undefined} />
     </Navbar>
   );
