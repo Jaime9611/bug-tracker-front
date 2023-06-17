@@ -3,6 +3,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import { Navbar } from '../lib/navbar';
 
+import ProfileImage from '../../../assets/images/profile-1.jpg';
+import { AvatarIcon } from '../lib';
+
 export default function Header() {
   return (
     <Navbar>
@@ -19,6 +22,7 @@ export default function Header() {
         AppBar
       </Typography>
       <Button color="inherit">Login</Button>
+      <AvatarIcon imgSRC={ProfileImage} handleClick={() => undefined} />
     </Navbar>
   );
 }
