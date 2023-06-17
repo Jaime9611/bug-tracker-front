@@ -13,7 +13,18 @@ export default function Navbar({ children }: NavbarProps) {
         position="static"
         sx={{ px: 1, backgroundColor: 'background.paper' }}
       >
-        <Toolbar>{children}</Toolbar>
+        <Toolbar>
+          <Box
+            sx={{
+              display: 'flex',
+              flex: 1,
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+          >
+            {children}
+          </Box>
+        </Toolbar>
       </AppBar>
     </Box>
   );
