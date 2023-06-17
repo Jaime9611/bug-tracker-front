@@ -9,7 +9,10 @@ interface NavbarProps {
 export default function Navbar({ children }: NavbarProps) {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ px: 1 }}>
+      <AppBar
+        position="static"
+        sx={{ px: 1, backgroundColor: 'background.paper' }}
+      >
         <Toolbar>{children}</Toolbar>
       </AppBar>
     </Box>
