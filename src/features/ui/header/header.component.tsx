@@ -1,4 +1,7 @@
+import React from 'react';
+
 import { Navbar } from '../lib/navbar';
+import { useSidebar } from '../layouts/page-container/sidebar.context';
 
 import ProfileImage from '../../../assets/images/profile-1.jpg';
 import {
@@ -10,11 +13,13 @@ import {
   SearchInput,
 } from '../lib';
 
-export default function Header() {
+const Header = () => {
+  const { toggleSidebar } = useSidebar();
+
   return (
     <Navbar>
       <HorizontalStack>
-        <HamburgerIcon handleClick={() => undefined} />
+        <HamburgerIcon handleClick={toggleSidebar} />
         <SearchInput />
       </HorizontalStack>
       <HorizontalStack>
@@ -25,4 +30,6 @@ export default function Header() {
       </HorizontalStack>
     </Navbar>
   );
-}
+};
+
+export default React.memo(Header);

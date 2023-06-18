@@ -1,4 +1,7 @@
+import React, { FC } from 'react';
+
 import { CSSObject, Drawer, Theme, Toolbar, styled } from '@mui/material';
+import { useSidebar } from '../layouts/page-container/sidebar.context';
 
 const DRAWER_WIDTH = 256;
 
@@ -40,9 +43,15 @@ const CustomDrawer = styled(Drawer, {
   }),
 }));
 
-const Sidebar = () => {
+interface SidebarProps {
+  isOpen?: boolean;
+}
+
+const Sidebar: FC<SidebarProps> = () => {
+  const { isOpen } = useSidebar();
+
   return (
-    <CustomDrawer variant="permanent" open>
+    <CustomDrawer variant="permanent" open={isOpen}>
       <Toolbar />
       {/* TODO: ADD LIST ITEMS */}
       <h5>Item 1</h5>
@@ -52,4 +61,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default React.memo(Sidebar);

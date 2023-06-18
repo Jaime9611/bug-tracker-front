@@ -2,10 +2,11 @@ import { Outlet } from 'react-router-dom';
 
 import { Header, Sidebar } from '@features/ui';
 import { Box } from '@mui/material';
+import SidebarProvider, { useSidebar } from './sidebar.context';
 
 const PageContainer = () => {
   return (
-    <>
+    <SidebarProvider>
       <Header />
       <Box display="flex" mt={9}>
         <Sidebar />
@@ -15,7 +16,7 @@ const PageContainer = () => {
           </Box>
         </Box>
       </Box>
-    </>
+    </SidebarProvider>
   );
 };
 
