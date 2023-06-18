@@ -1,23 +1,10 @@
 import React, { FC } from 'react';
 
-import {
-  CSSObject,
-  Collapse,
-  Box,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Theme,
-  styled,
-} from '@mui/material';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
+import { CSSObject, Box, Drawer, Theme, styled } from '@mui/material';
+
 import { useSidebar } from '@contexts/sidebar.context';
+import { sidebarConfig } from '@config/sidebar-config';
+import { NavList } from '..';
 
 const DRAWER_WIDTH = 254;
 
@@ -69,46 +56,8 @@ const Sidebar: FC<SidebarProps> = () => {
   return (
     <CustomDrawer variant="permanent" open={isOpen}>
       {/* TODO: ADD LIST ITEMS */}
-      <Box mt={6} flex={1}>
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: isOpen ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: isOpen ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: isOpen ? 1 : 0 }} />
-              </ListItemButton>
-              <ListItemButton onClick={() => undefined}>
-                <ListItemIcon>
-                  <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="Inbox" />
-                {true ? <ExpandLess /> : <ExpandMore />}
-              </ListItemButton>
-              <Collapse in={false} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>-</ListItemIcon>
-                    <ListItemText primary="Starred" />
-                  </ListItemButton>
-                </List>
-              </Collapse>
-            </ListItem>
-          ))}
-        </List>
+      <Box mt={7} flex={1}>
+        <NavList navConfig={sidebarConfig} />
       </Box>
     </CustomDrawer>
   );

@@ -8,7 +8,9 @@
     "baseUrl": ".",
     "paths": {
       "@features/*": ["src/features/*"],
-      "@contexts/*": ["src/contexts/*"]
+      "@contexts/*": ["src/contexts/*"],
+      "@config/*": ["src/config/*"],
+      "@routes/*": ["src/routes/*"]
     },
 
     /* Bundler mode */

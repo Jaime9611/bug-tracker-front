@@ -22,4 +22,9 @@ export const PATH_PAGE = {
 
 export const PATH_DASHBOARD = {
   root: ROOT_DASHBOARD,
+  projects: {
+    root: path(ROOT_DASHBOARD, '/projects'),
+    allProjects: path(ROOT_DASHBOARD, '/all-projects'),
+    myProjects: path(ROOT_DASHBOARD, '/my-projects'),
+  },
 };
