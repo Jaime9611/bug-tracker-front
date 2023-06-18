@@ -1,5 +1,5 @@
-import { FC, useState } from 'react';
-import { matchPath, useLocation } from 'react-router-dom';
+import { FC, useState, useEffect } from 'react';
+import { Link, matchPath, useLocation, useNavigate } from 'react-router-dom';
 
 import {
   Box,
@@ -24,11 +24,18 @@ interface NavItemProps {
 const NavItem: FC<NavItemProps> = ({ item }) => {
   const { pathname } = useLocation();
   const { isOpen: isCollapseDrawerOpen } = useSidebar();
+  const navigate = useNavigate();
   const isActiveRoot = item.path
     ? !!matchPath({ path: item.path, end: false }, pathname)
     : false;
 
   const [open, setOpen] = useState(isActiveRoot);
+
+  useEffect(() => {
+    if (!isActiveRoot) {
+      setOpen(false);
+    }
+  }, [pathname, isActiveRoot]);
 
   if (item.children) {
     return (
@@ -38,8 +45,12 @@ const NavItem: FC<NavItemProps> = ({ item }) => {
             minHeight: 48,
             justifyContent: isCollapseDrawerOpen ? 'initial' : 'center',
             px: 2.5,
+            ...(isActiveRoot && activeRootNavItemStyle),
           }}
-          onClick={() => setOpen((prevState) => !prevState)}
+          onClick={() => {
+            setOpen((prevState) => !prevState);
+            navigate(item.path);
+          }}
         >
           <ListItemIcon
             sx={{
@@ -52,7 +63,10 @@ const NavItem: FC<NavItemProps> = ({ item }) => {
           </ListItemIcon>
           <ListItemText
             primary={item.title}
-            sx={{ opacity: isCollapseDrawerOpen ? 1 : 0 }}
+            sx={{
+              opacity: isCollapseDrawerOpen ? 1 : 0,
+              textTransform: 'capitalize',
+            }}
           />
           {isCollapseDrawerOpen && (open ? <ExpandLess /> : <ExpandMore />)}
         </ListItemButton>
@@ -62,13 +76,15 @@ const NavItem: FC<NavItemProps> = ({ item }) => {
             <List component="div" disablePadding>
               {item.children.map((subLink) => {
                 const isActiveSub = subLink.path
-                  ? !!matchPath({ path: subLink.path, end: false }, pathname)
+                  ? !!matchPath({ path: subLink.path, end: true }, pathname)
                   : false;
 
                 return (
                   <ListItemButton
                     key={`subnavitem-${subLink.title}`}
                     sx={{ pl: 4 }}
+                    component={Link}
+                    to={subLink.path}
                   >
                     <ListItemIcon>
                       <Box
@@ -91,7 +107,7 @@ const NavItem: FC<NavItemProps> = ({ item }) => {
                       />
                     </ListItemIcon>
                     <ListItemText
-                      sx={{ color: 'gray' }}
+                      sx={{ color: 'gray', textTransform: 'capitalize' }}
                       primary={subLink.title}
                     />
                   </ListItemButton>
@@ -108,10 +124,15 @@ const NavItem: FC<NavItemProps> = ({ item }) => {
       key={item.title}
       disablePadding
       sx={{ display: 'block', ...(isActiveRoot && activeRootNavItemStyle) }}
+      component={Link}
+      to={item.path}
     >
       <ListItemButton key={`subnavitem-${item.title}`}>
         <ListItemIcon>{item.icon}</ListItemIcon>
-        <ListItemText primary={item.title} />
+        <ListItemText
+          sx={{ textTransform: 'capitalize' }}
+          primary={item.title}
+        />
       </ListItemButton>
     </ListItem>
   );

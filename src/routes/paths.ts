@@ -3,6 +3,7 @@
 const path = (root: string, subpath: string) => `${root}${subpath}`;
 
 const ROOT_DASHBOARD = '/dashboard';
+const ROOT_PROJECTS = '/projects';
 const ROOT_AUTH = '/auth';
 
 // -----------------------------------------------------------
@@ -22,9 +23,10 @@ export const PATH_PAGE = {
 
 export const PATH_DASHBOARD = {
   root: ROOT_DASHBOARD,
-  projects: {
-    root: path(ROOT_DASHBOARD, '/projects'),
-    allProjects: path(ROOT_DASHBOARD, '/all-projects'),
-    myProjects: path(ROOT_DASHBOARD, '/my-projects'),
-  },
+};
+
+export const PATH_PROJECTS = {
+  root: ROOT_PROJECTS,
+  allProjects: path(ROOT_PROJECTS, '/all-projects'),
+  myProjects: path(ROOT_PROJECTS, '/my-projects'),
 };

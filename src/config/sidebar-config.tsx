@@ -1,8 +1,9 @@
-import { PATH_DASHBOARD } from '@routes/constants';
+import { DashboardIcon, ProjectIcon } from '@features/ui/lib';
+import { PATH_DASHBOARD, PATH_PROJECTS } from '@routes/paths';
 
 const ICONS = {
-  dashboard: <i>Dash</i>,
-  projects: <i>Proj</i>,
+  dashboard: <DashboardIcon />,
+  projects: <ProjectIcon />,
 };
 
 export interface SidebarConfigData {
@@ -28,10 +29,10 @@ export const sidebarConfig: SidebarConfigData[] = [
   {
     title: 'projects',
     icon: ICONS.projects,
-    path: PATH_DASHBOARD.projects.root,
+    path: PATH_PROJECTS.root,
     children: [
-      { title: 'all projects', path: PATH_DASHBOARD.projects.allProjects },
-      { title: 'my projects', path: PATH_DASHBOARD.projects.myProjects },
+      { title: 'all projects', path: PATH_PROJECTS.allProjects },
+      { title: 'my projects', path: PATH_PROJECTS.myProjects },
     ],
   },
 ];
