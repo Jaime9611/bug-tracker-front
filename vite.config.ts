@@ -16,6 +16,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@features': path.resolve(__dirname, './src/features'),
+      '@contexts': path.resolve(__dirname, './src/contexts'),
     },
   },
 });

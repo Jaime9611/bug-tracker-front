@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Navbar } from '../lib/navbar';
-import { useSidebar } from '../layouts/page-container/sidebar.context';
+import { useSidebar } from '../../../contexts/sidebar.context';
 
 import ProfileImage from '../../../assets/images/profile-1.jpg';
 import {
