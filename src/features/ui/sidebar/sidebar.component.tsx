@@ -4,7 +4,7 @@ import { CSSObject, Box, Drawer, Theme, styled } from '@mui/material';
 
 import { useSidebar } from '@contexts/sidebar.context';
 import { sidebarConfig } from '@config/sidebar-config';
-import { NavList } from '..';
+import NavList from '../nav-list/nav-list.component';
 
 const DRAWER_WIDTH = 254;
 
