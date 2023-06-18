@@ -10,8 +10,13 @@ export default function Navbar({ children }: NavbarProps) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
-        position="static"
-        sx={{ px: 1, backgroundColor: 'background.paper' }}
+        position="fixed"
+        sx={{
+          px: 1,
+          backgroundColor: 'background.paper',
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+          boxShadow: 'none',
+        }}
       >
         <Toolbar>
           <Box
