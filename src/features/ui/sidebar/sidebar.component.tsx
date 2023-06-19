@@ -1,9 +1,12 @@
 import React, { FC } from 'react';
 
-import { CSSObject, Drawer, Theme, Toolbar, styled } from '@mui/material';
-import { useSidebar } from '../layouts/page-container/sidebar.context';
+import { CSSObject, Box, Drawer, Theme, styled } from '@mui/material';
 
-const DRAWER_WIDTH = 256;
+import { useSidebar } from '@contexts/sidebar.context';
+import { sidebarConfig } from '@config/sidebar-config';
+import NavList from '../nav-list/nav-list.component';
+
+const DRAWER_WIDTH = 254;
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: DRAWER_WIDTH,
@@ -52,11 +55,10 @@ const Sidebar: FC<SidebarProps> = () => {
 
   return (
     <CustomDrawer variant="permanent" open={isOpen}>
-      <Toolbar />
       {/* TODO: ADD LIST ITEMS */}
-      <h5>Item 1</h5>
-      <h5>Item 2</h5>
-      <h5>Item 3</h5>
+      <Box mt={7} flex={1}>
+        <NavList navConfig={sidebarConfig} />
+      </Box>
     </CustomDrawer>
   );
 };
