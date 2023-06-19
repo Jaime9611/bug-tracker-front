@@ -12,7 +12,6 @@ export default function Navbar({ children }: NavbarProps) {
       <AppBar
         position="fixed"
         sx={{
-          px: 1,
           backgroundColor: 'background.paper',
           zIndex: (theme) => theme.zIndex.drawer + 1,
           boxShadow: 'none',

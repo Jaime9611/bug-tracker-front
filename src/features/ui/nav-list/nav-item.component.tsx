@@ -123,14 +123,28 @@ const NavItem: FC<NavItemProps> = ({ item }) => {
     <ListItem
       key={item.title}
       disablePadding
-      sx={{ display: 'block', ...(isActiveRoot && activeRootNavItemStyle) }}
+      sx={{ display: 'block' }}
       component={Link}
       to={item.path}
     >
-      <ListItemButton key={`subnavitem-${item.title}`}>
-        <ListItemIcon>{item.icon}</ListItemIcon>
+      <ListItemButton
+        key={`subnavitem-${item.title}`}
+        sx={{ px: 2.5, ...(isActiveRoot && activeRootNavItemStyle) }}
+      >
+        <ListItemIcon
+          sx={{
+            minWidth: 0,
+            mr: isCollapseDrawerOpen ? 3 : 'auto',
+            justifyContent: 'center',
+          }}
+        >
+          {item.icon}
+        </ListItemIcon>
         <ListItemText
-          sx={{ textTransform: 'capitalize' }}
+          sx={{
+            opacity: isCollapseDrawerOpen ? 1 : 0,
+            textTransform: 'capitalize',
+          }}
           primary={item.title}
         />
       </ListItemButton>
