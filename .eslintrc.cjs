@@ -10,6 +10,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
+    'plugin:storybook/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -28,5 +29,19 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     'react/function-component-definition': 0,
     'import/prefer-default-export': 0,
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: [
+          '**/*.stories.*',
+          '**/.storybook/**/*.*',
+          '**/*.test.tsx',
+          '**/*.test.ts',
+          '**/*.spec.tsx',
+          '**/*.spec.ts',
+        ],
+        peerDependencies: true,
+      },
+    ],
   },
 };

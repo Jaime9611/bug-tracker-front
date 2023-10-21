@@ -27,6 +27,12 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": [".eslintrc.cjs", "src"],
+  "include": [
+    ".eslintrc.cjs",
+    "src",
+    ".storybook/main.ts",
+    ".storybook/preview.ts"
+  ],
+  "exclude": ["node_modules", "build", "scripts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
