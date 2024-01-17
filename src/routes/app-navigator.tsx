@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { LoadingScreen } from '@features/ui/loading-screen/loading-screen';
 import { PageContainer } from '@features/ui';
-import { Dashboard } from '../pages';
+import { Dashboard, Projects } from '../pages';
 
 import { PATH_AUTH, PATH_DASHBOARD, PATH_PAGE, PATH_PROJECTS } from './paths';
 
@@ -24,10 +24,7 @@ const AppNavigator = () => (
       {/* PROJECTS */}
       <Route path={PATH_PROJECTS.root}>
         <Route index element={<Navigate to={PATH_PROJECTS.allProjects} />} />
-        <Route
-          path={PATH_PROJECTS.allProjects}
-          element={<div>All Projects</div>}
-        />
+        <Route path={PATH_PROJECTS.allProjects} element={<Projects />} />
         <Route
           path={PATH_PROJECTS.myProjects}
           element={<div>My Projects</div>}
