@@ -1,5 +1,7 @@
+import { ProjectList } from '@features/projects';
+
 const Projects = () => {
-  return <div>Projects</div>;
+  return <ProjectList />;
 };
 
 export default Projects;
