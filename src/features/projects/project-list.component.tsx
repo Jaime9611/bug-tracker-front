@@ -19,9 +19,9 @@ const columns: GridColDef[] = [
   { field: 'endsAt', headerName: 'End Date', width: 150 },
 ];
 const ProjectList = () => {
-  const projects = useProjects();
+  const [projects, isLoading] = useProjects();
 
-  if (projects.length <= 0) {
+  if (projects.length <= 0 && !isLoading) {
     return <h2>No Projects</h2>;
   }
 

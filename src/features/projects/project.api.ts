@@ -8,7 +8,7 @@ export const getProjects = async () => {
   try {
     // TODO: Change to correct endpoint
     const { data } = await baseFetch.get<ProjectResponse>(
-      `${ENDPOINT}/94802918-2eab-4c21-9fc1-14345cee09dc`
+      `${ENDPOINT}/e9fc378f-9a81-4c86-b78f-c89fe0847727`
     );
 
     return projectItemAdapter(data);
