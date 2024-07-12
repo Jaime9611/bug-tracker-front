@@ -1,8 +1,7 @@
 import { ReactNode, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import { LoadingScreen } from '@features/ui/loading-screen/loading-screen';
-import { PageContainer } from '@features/ui';
+import { LoadingScreen, PageContainer } from '@features/ui';
 import { Dashboard } from '../pages';
 
 import { PATH_AUTH, PATH_DASHBOARD, PATH_PAGE, PATH_PROJECTS } from './paths';
@@ -18,9 +17,9 @@ const AppNavigator = () => (
     {/* AUTHENTICATION */}
     <Route path={PATH_AUTH.login} element={<h1>Login</h1>} />
 
-    <Route path="/" element={<PageContainer />}>
+    <Route path="/" element={withLoading(<PageContainer />)}>
       {/* DASHBOARD */}
-      <Route path={PATH_DASHBOARD.root} element={withLoading(<Dashboard />)} />
+      <Route path={PATH_DASHBOARD.root} element={<Dashboard />} />
       {/* PROJECTS */}
       <Route path={PATH_PROJECTS.root}>
         <Route index element={<Navigate to={PATH_PROJECTS.allProjects} />} />
