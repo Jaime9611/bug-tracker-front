@@ -5,18 +5,24 @@ import { useProjects } from './use-project.hook';
 import { Project } from './project.model';
 // -- Columns
 // --------------------------
+// TODO: REMOVE HARDCODED STATUS
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 90 },
-  { field: 'title', headerName: 'Title', width: 150 },
+  { field: 'title', headerName: 'Project', flex: 2 },
   {
     field: 'team',
     headerName: 'Team',
-    width: 150,
+    flex: 1,
     valueGetter: (params: GridValueGetterParams<Project>) =>
       `${params.row.team.title}`,
   },
-  { field: 'startsAt', headerName: 'Start Date', width: 150 },
-  { field: 'endsAt', headerName: 'End Date', width: 150 },
+  { field: 'startsAt', headerName: 'Start Date', flex: 1 },
+  { field: 'endsAt', headerName: 'End Date', flex: 1 },
+  {
+    field: '',
+    headerName: 'Status',
+    flex: 1,
+    valueGetter: () => 'Working',
+  },
 ];
 const ProjectList = () => {
   const [projects, isLoading] = useProjects();
