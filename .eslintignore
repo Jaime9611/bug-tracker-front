@@ -1,5 +1,6 @@
+node_modules
 vite.config.ts
 tsconfig.ts
 !.storybook
 .eslintrc.js
-*.config.js
+*.config.

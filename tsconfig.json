@@ -10,7 +10,9 @@
       "@features/*": ["src/features/*"],
       "@contexts/*": ["src/contexts/*"],
       "@config/*": ["src/config/*"],
-      "@routes/*": ["src/routes/*"]
+      "@routes/*": ["src/routes/*"],
+      "@services/*": ["src/services/*"],
+      "@constants/*": ["src/constants/*"]
     },
 
     /* Bundler mode */
