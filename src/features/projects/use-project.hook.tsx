@@ -10,7 +10,7 @@ export const useProjects = () => {
   const fetchProjects = () => {
     const response = getProjects().then((data) => {
       if (response !== undefined && response !== null) {
-        setProjects([data]); // TODO: Change to the correct data
+        setProjects(data);
         setIsLoading(false);
       } else {
         setProjects([] as Project[]);

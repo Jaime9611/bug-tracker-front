@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import { GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 
 import { TableData } from '@features/ui/lib';
@@ -18,10 +19,21 @@ const columns: GridColDef[] = [
   { field: 'startsAt', headerName: 'Start Date', flex: 1 },
   { field: 'endsAt', headerName: 'End Date', flex: 1 },
   {
-    field: '',
+    field: 'status',
     headerName: 'Status',
     flex: 1,
-    valueGetter: () => 'Working',
+    valueGetter: (params: GridValueGetterParams<Project>) =>
+      `${params.row.status.title}`,
+  },
+  {
+    field: '',
+    flex: 1,
+    renderCell: () => (
+      <>
+        <button type="button">Edit</button>
+        <button type="button">See details</button>
+      </>
+    ),
   },
 ];
 const ProjectList = () => {
@@ -31,7 +43,11 @@ const ProjectList = () => {
     return <h2>No Projects</h2>;
   }
 
-  return <TableData rows={projects} columns={columns} />;
+  return (
+    <Box>
+      <TableData rows={projects} columns={columns} />
+    </Box>
+  );
 };
 
 export default ProjectList;

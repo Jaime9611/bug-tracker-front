@@ -8,6 +8,7 @@ export interface ProjectResponse {
   startsAt: Date;
   endsAt: Date;
   tickets: Ticket[];
+  status: Status;
 }
 
 export interface Project {
@@ -17,4 +18,10 @@ export interface Project {
   startsAt: Date;
   endsAt: Date;
   tickets: Ticket[];
+  status: Status;
+}
+
+export interface Status {
+  id: string;
+  title: string;
 }
