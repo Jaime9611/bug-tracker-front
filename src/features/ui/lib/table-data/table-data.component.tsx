@@ -1,12 +1,14 @@
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
-import { FC } from 'react';
 
-interface TableDataProps {
-  rows: [];
+interface TableDataProps<T extends NonNullable<unknown>> {
+  rows: T[];
   columns: GridColDef[];
 }
 
-const TableData: FC<TableDataProps> = ({ rows, columns }) => {
+const TableData = <T extends NonNullable<unknown>>({
+  rows,
+  columns,
+}: TableDataProps<T>) => {
   return (
     <DataGrid
       rows={rows}
