@@ -1,4 +1,5 @@
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { tableStyles } from './table-data.styles';
 
 interface TableDataProps<T extends NonNullable<unknown>> {
   rows: T[];
@@ -20,6 +21,7 @@ const TableData = <T extends NonNullable<unknown>>({
           },
         },
       }}
+      sx={tableStyles}
       pageSizeOptions={[5]}
       checkboxSelection
       disableRowSelectionOnClick

@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Paper } from '@mui/material';
 import { GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 
 import { TableData } from '@features/ui/lib';
@@ -44,9 +44,15 @@ const ProjectList = () => {
   }
 
   return (
-    <Box>
+    <Paper
+      sx={{
+        p: 4,
+        display: 'flex',
+        justifyContent: 'center',
+      }}
+    >
       <TableData rows={projects} columns={columns} />
-    </Box>
+    </Paper>
   );
 };
 
