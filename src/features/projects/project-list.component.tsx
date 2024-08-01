@@ -43,17 +43,7 @@ const ProjectList = () => {
     return <h2>No Projects</h2>;
   }
 
-  return (
-    <Paper
-      sx={{
-        p: 4,
-        display: 'flex',
-        justifyContent: 'center',
-      }}
-    >
-      <TableData rows={projects} columns={columns} />
-    </Paper>
-  );
+  return <TableData rows={projects} columns={columns} />;
 };
 
 export default ProjectList;

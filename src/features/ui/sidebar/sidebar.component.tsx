@@ -15,6 +15,15 @@ const openedMixin = (theme: Theme): CSSObject => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: 'hidden',
+  '& .MuiListItemButton-root': {
+    paddingLeft: theme.spacing(4.5),
+  },
+  '& a.MuiListItemButton-root': {
+    marginLeft: theme.spacing(4),
+    '& .MuiListItemIcon-root': {
+      minWidth: theme.spacing(3),
+    },
+  },
 });
 
 const closedMixin = (theme: Theme): CSSObject => ({
@@ -25,7 +34,10 @@ const closedMixin = (theme: Theme): CSSObject => ({
   overflowX: 'hidden',
   width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up('sm')]: {
-    width: `calc(${theme.spacing(8)} + 1px)`,
+    width: `calc(${theme.spacing(12)} + 1px)`,
+    '& .MuiListItemButton-root': {
+      paddingLeft: theme.spacing(4.5),
+    },
   },
 });
 

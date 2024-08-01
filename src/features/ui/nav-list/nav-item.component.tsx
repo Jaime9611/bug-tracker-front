@@ -144,6 +144,7 @@ const NavItem: FC<NavItemProps> = ({ item }) => {
           sx={{
             opacity: isCollapseDrawerOpen ? 1 : 0,
             textTransform: 'capitalize',
+            color: 'black',
           }}
           primary={item.title}
         />
