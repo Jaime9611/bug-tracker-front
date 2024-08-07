@@ -1,7 +1,11 @@
-import { Box, Paper } from '@mui/material';
-import { GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import {
+  GridColDef,
+  GridRenderCellParams,
+  GridValueGetterParams,
+} from '@mui/x-data-grid';
 
-import { TableData } from '@features/ui/lib';
+import { Chip, TableData } from '@features/ui/lib';
+import { getNormalDate } from '@utils/formatDate';
 import { useProjects } from './use-project.hook';
 import { Project } from './project.model';
 // -- Columns
@@ -16,14 +20,27 @@ const columns: GridColDef[] = [
     valueGetter: (params: GridValueGetterParams<Project>) =>
       `${params.row.team.title}`,
   },
-  { field: 'startsAt', headerName: 'Start Date', flex: 1 },
-  { field: 'endsAt', headerName: 'End Date', flex: 1 },
+  {
+    field: 'startsAt',
+    headerName: 'Start Date',
+    flex: 1,
+    valueGetter: (params: GridValueGetterParams<Project>) =>
+      getNormalDate(`${params.row.startsAt}`),
+  },
+  {
+    field: 'endsAt',
+    headerName: 'End Date',
+    flex: 1,
+    valueGetter: (params: GridValueGetterParams<Project>) =>
+      getNormalDate(`${params.row.endsAt}`),
+  },
   {
     field: 'status',
     headerName: 'Status',
     flex: 1,
-    valueGetter: (params: GridValueGetterParams<Project>) =>
-      `${params.row.status.title}`,
+    renderCell: (params: GridRenderCellParams<Project>) => (
+      <Chip label={`${params.row.status.title}`} />
+    ),
   },
   {
     field: '',
